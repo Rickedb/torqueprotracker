@@ -12,9 +12,10 @@ import (
 
 func main() {
 	database := os.Getenv("DATABASE")
+	port := os.Getenv("PORT")
 	c := cron.New()
 	c.AddFunc("* * * * *", func() { services.Save(database) })
 	c.Start()
 	http.HandleFunc("/upload", apiv1.Upload)
-	log.Fatal(http.ListenAndServe(":5000", nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
