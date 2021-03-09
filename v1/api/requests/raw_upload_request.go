@@ -1,9 +1,10 @@
 package requests
 
 type TorqueProRequest struct {
+	Email     *string `json:"eml" bson:"email,omitempty"`
 	Version   int     `json:"v" bson:"version,omitempty"`
 	Session   int64   `json:"session" bson:"session,omitempty" `
-	ID        *string `json:"id" bson:"_id,omitempty" `
+	ID        *string `json:"id" bson:"id,omitempty" `
 	Timestamp int64   `json:"time" bson:"timestamp,omitempty" `
 
 	MassAirFlowRate          *float32 `json:"k10" bson:"massAirFlowRate,omitempty"`
@@ -106,17 +107,17 @@ type TorqueProRequest struct {
 	O2VoltsBank2Sensor3 *float32 `json:"kff121a" bson:"o2VoltsBank2Sensor3,omitempty"`
 	O2VoltsBank2Sensor4 *float32 `json:"kff121b" bson:"o2VoltsBank2Sensor4,omitempty"`
 
-	AccelerationSensorX     *int     `json:"kff1220" bson:"accelerationSensorX,omitempty"`
-	AccelerationSensorY     *int     `json:"kff1221" bson:"accelerationSensorY,omitempty"`
-	AccelerationSensorZ     *int     `json:"kff1222" bson:"accelerationSensorZ,omitempty"`
-	AccelerationSensorTotal *int     `json:"kff1223" bson:"accelerationSensorTotal,omitempty"`
+	AccelerationSensorX     *float32 `json:"kff1220" bson:"accelerationSensorX,omitempty"`
+	AccelerationSensorY     *float32 `json:"kff1221" bson:"accelerationSensorY,omitempty"`
+	AccelerationSensorZ     *float32 `json:"kff1222" bson:"accelerationSensorZ,omitempty"`
+	AccelerationSensorTotal *float32 `json:"kff1223" bson:"accelerationSensorTotal,omitempty"`
 	Torque                  *float32 `json:"kff1225" bson:"torque,omitempty"`
 	HorsePowerAtWheels      *float32 `json:"kff1226" bson:"horsePowerAtWheels,omitempty"`
-	ZeroToSixtyMphTime      *int64   `json:"kff122d" bson:"zeroToSixtyMphTime,omitempty"`
-	ZeroToHundredKphTime    *int64   `json:"kff122e" bson:"zeroToHundredKphTime,omitempty"`
-	AQuarterMileTime        *int64   `json:"kff122f" bson:"aQuarterMileTime,omitempty"`
+	ZeroToSixtyMphTime      *float32 `json:"kff122d" bson:"zeroToSixtyMphTime,omitempty"`
+	ZeroToHundredKphTime    *float32 `json:"kff122e" bson:"zeroToHundredKphTime,omitempty"`
+	AQuarterMileTime        *float32 `json:"kff122f" bson:"aQuarterMileTime,omitempty"`
 
-	AnEighthMileTime        *int64   `json:"kff1230" bson:"anEighthMileTime,omitempty"`
+	AnEighthMileTime        *float32 `json:"kff1230" bson:"anEighthMileTime,omitempty"`
 	GPSByOBDSpeedDifference *float32 `json:"kff1237" bson:"gpsByOBDSpeedDifference,omitempty"`
 	VoltageOBDAdapter       *float32 `json:"kff1238" bson:"voltageOBDAdapter,omitempty"`
 	GPSAccuracy             *float32 `json:"kff1239" bson:"gpsAccuracy,omitempty"`
@@ -136,14 +137,14 @@ type TorqueProRequest struct {
 	TiltY                     *float32 `json:"kff124b" bson:"tiltY,omitempty"`
 	TiltZ                     *float32 `json:"kff124c" bson:"tiltZ,omitempty"`
 	CommandedAirFuelRatio     *float64 `json:"kff124d" bson:"commandedAirFuelRatio,omitempty"`
-	ZeroToTwoHundredKphTime   *int64   `json:"kff124f" bson:"zeroToTwoHundredKphTime,omitempty"`
+	ZeroToTwoHundredKphTime   *float32 `json:"kff124f" bson:"zeroToTwoHundredKphTime,omitempty"`
 
 	InstantaneousCO2            *float32 `json:"kff1257" bson:"instantaneousCO2,omitempty"`
 	AverageCO2                  *float32 `json:"kff1258" bson:"averageCO2,omitempty"`
 	FuelFlowRateByMinute        *float32 `json:"kff125a" bson:"fuelFlowRateByMinute,omitempty"`
 	FuelCostTrip                *float32 `json:"kff125c" bson:"fuelCostTrip,omitempty"`
 	FuelFlowRateByHour          *float32 `json:"kff125d" bson:"fuelFlowRateByHour,omitempty"`
-	SixtyToHundredTwentyMphTime *int64   `json:"kff125e" bson:"sixtyToHundredTwentyMphTime,omitempty"`
+	SixtyToHundredTwentyMphTime *float32 `json:"kff125e" bson:"sixtyToHundredTwentyMphTime,omitempty"`
 
 	FortyToSixtyMphTime            *int64   `json:"kff1260" bson:"fortyToSixtyMphTime,omitempty"`
 	AverageTripSpeedMovingOnly     *float64 `json:"kff1263" bson:"averageTripSpeedMovingOnly,omitempty"`
@@ -162,11 +163,11 @@ type TorqueProRequest struct {
 	FuelUsedTrip                    *float32 `json:"kff1271" bson:"fuelUsedTrip,omitempty"`
 	AverageTripSpeedStoppedOrMoving *float64 `json:"kff1272" bson:"averageTripSpeedStoppedOrMoving,omitempty"`
 	EngineKWAtWheels                *float32 `json:"kff1273" bson:"engineKWAtWheels,omitempty"`
-	SixtyToHundredThirtyMphTime     *int64   `json:"kff1276" bson:"sixtyToHundredThirtyMphTime,omitempty"`
-	ZerotoThirtyMphTime             *int64   `json:"kff1277" bson:"zerotoThirtyMphTime,omitempty"`
-	ZeroToHundredMphTime            *int64   `json:"kff1278" bson:"zeroToHundredMphTime,omitempty"`
+	SixtyToHundredThirtyMphTime     *float32 `json:"kff1276" bson:"sixtyToHundredThirtyMphTime,omitempty"`
+	ZerotoThirtyMphTime             *float32 `json:"kff1277" bson:"zerotoThirtyMphTime,omitempty"`
+	ZeroToHundredMphTime            *float32 `json:"kff1278" bson:"zeroToHundredMphTime,omitempty"`
 
-	HundredToTwoHundredKphTime *int64 `json:"kff1280" bson:"hundredToTwoHundredKphTime,omitempty"`
+	HundredToTwoHundredKphTime *float32 `json:"kff1280" bson:"hundredToTwoHundredKphTime,omitempty"`
 
 	PercentageOfCityDriving    *float32 `json:"kff1296" bson:"percentageOfCityDriving,omitempty"`
 	PercentageOfHighwayDriving *float32 `json:"kff1297" bson:"percentageOfHighwayDriving,omitempty"`

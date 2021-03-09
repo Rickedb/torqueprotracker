@@ -12,9 +12,14 @@ import (
 )
 
 var concurrentSlice concurrent.ConcurrentSlice
+var errorsConcurrentSlice concurrent.ConcurrentSlice
 
 func Enqueue(entity *requests.TorqueProRequest) {
 	concurrentSlice.Append(entity)
+}
+
+func EnqueueLog(entity *error) {
+	errorsConcurrentSlice.Append(entity)
 }
 
 func Save(database string) {
@@ -24,7 +29,10 @@ func Save(database string) {
 		documents = append(documents, doc)
 	}
 
+	fmt.Print("Checking queue...")
 	if len(documents) > 0 {
+		fmt.Printf("Total to be inserted: %v", len(documents))
+
 		opt := options.Client().ApplyURI(database)
 		client, err := mongo.NewClient(opt)
 		if err != nil {
@@ -43,6 +51,7 @@ func Save(database string) {
 		result, err := db.Collection("raw_data").InsertMany(ctx, documents)
 		if err != nil {
 			fmt.Printf("Error occurred while inserting data: %v", err)
+			db.Collection("logs").InsertOne(ctx, err)
 		} else {
 			fmt.Printf("Total inserted: %v", len(result.InsertedIDs))
 		}

@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/joncalhoun/qson"
 	requests "github.com/rickedb/torqueprotracker/v1/api/requests"
@@ -15,7 +16,8 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(query)
 
 	var request requests.TorqueProRequest
-	err := qson.Unmarshal(&request, r.URL.RawQuery)
+	raw := strings.ReplaceAll(r.URL.RawQuery, "Infinity", "0")
+	err := qson.Unmarshal(&request, raw)
 	if err == nil {
 		fmt.Println(request)
 		services.Enqueue(&request)
