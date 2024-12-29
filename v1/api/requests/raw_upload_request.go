@@ -50,11 +50,11 @@ type TorqueProRequest struct {
 	EngineLoadAbsolute        *float32 `json:"k43" bson:"engineLoadAbsolute,omitempty"`
 	CommandedEquivalenceRatio *float32 `json:"k44" bson:"commandedEquivalenceRatio,omitempty"`
 	RelativeThrottlePosition  *float32 `json:"k45" bson:"relativeThrottlePosition,omitempty"`
-	AmbientAirTemperature     *int     `json:"k46" bson:"ambientAirTemperature,omitempty"`
-	AbsoluteThrottlePositionB *int     `json:"k47" bson:"absoluteThrottlePositionB,omitempty"`
-	AcceleratorPedalPositionD *int     `json:"k49" bson:"acceleratorPedalPositionD,omitempty"`
-	AcceleratorPedalPositionE *int     `json:"k4a" bson:"acceleratorPedalPositionE,omitempty"`
-	AcceleratorPedalPositionF *int     `json:"k4b" bson:"acceleratorPedalPositionF,omitempty"`
+	AmbientAirTemperature     *float32 `json:"k46" bson:"ambientAirTemperature,omitempty"`
+	AbsoluteThrottlePositionB *float32 `json:"k47" bson:"absoluteThrottlePositionB,omitempty"`
+	AcceleratorPedalPositionD *float32 `json:"k49" bson:"acceleratorPedalPositionD,omitempty"`
+	AcceleratorPedalPositionE *float32 `json:"k4a" bson:"acceleratorPedalPositionE,omitempty"`
+	AcceleratorPedalPositionF *float32 `json:"k4b" bson:"acceleratorPedalPositionF,omitempty"`
 
 	EngineCoolantTemperature         *float32 `json:"k5" bson:"engineCoolantTemperature,omitempty"`
 	EthanolFuelPercentage            *float32 `json:"k52" bson:"ethanolFuelPercentage,omitempty"`
